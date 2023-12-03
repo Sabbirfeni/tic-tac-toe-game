@@ -115,15 +115,6 @@ body {
     z-index: 5;
 }
 
-.details span:first-child {
-    color: #fff;
-}
-
-/* .details span.active {
-    color: #fff;
-    background-color: #56baed;
-} */
-
 .details .slider {
     position: absolute;
     top: 0;
@@ -133,7 +124,31 @@ body {
     background-color: #56baed;
     border-radius: 5px;
     z-index: 2;
+    transition: all 0.3s ease;
 }
+
+.details span:first-child {
+    color: #fff;
+}
+
+.players.active span:first-child {
+    color: #56baed;
+}
+
+.players.active span:nth-child(2) {
+    color: #ffffff;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+/* .details span.active {
+    color: #fff;
+    background-color: #56baed;
+} */
+
+
 
 .play-board .play-area {
     margin-top: 20px;
