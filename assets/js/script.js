@@ -4,7 +4,10 @@ selectXBtn = selectBox.querySelector('.playerX'),
 selectOBtn = selectBox.querySelector('.playerO'),
 playBoard = document.querySelector('.play-board'),
 allBox = document.querySelectorAll('section span'),
-players = document.querySelector('.players');
+players = document.querySelector('.players'),
+resultBox = document.querySelector('.result-box'),
+wonText = document.querySelector('.won-text'),
+replayBtn = document.querySelector('.result-box button')
 
 let runBot = true;
 
@@ -91,8 +94,26 @@ const checkId = (val1, val2, val3, sign) => {
 
 const generateWinner = () => {
     if(checkId(1, 2, 3, playerSign) || checkId(1, 4, 7, playerSign) || checkId(1, 5, 9, playerSign) || checkId(2, 5, 8, playerSign) || checkId(3, 5, 7, playerSign) || checkId(3, 6, 9, playerSign) || checkId(4, 5, 6, playerSign) || checkId(7, 8, 9, playerSign)) {
-        console.log(`Player ${playerSign} has own the game`)
         runBot = false
         playBoard.style.pointerEvents = 'none'
+        setTimeout(() => {
+            playBoard.classList.remove('show')
+            resultBox.classList.add('show')
+        }, 800)
+        wonText.innerHTML = `Player <p>${playerSign}</p> has own the game`
+    } else {
+        if(getId(1) !== '' && getId(2) !== '' && getId(3) !== '' && getId(4) !== '' && getId(5) !== '' && getId(6) !== '' && getId(7) !== '' && getId(8) !== '' && getId(9) !== '') {
+            runBot = false
+            playBoard.style.pointerEvents = 'none'
+            setTimeout(() => {
+                playBoard.classList.remove('show')
+                resultBox.classList.add('show')
+            }, 800)
+            wonText.innerText = `Match has been drawn!`
+        }
     }
+}
+
+replayBtn.onclick = () => {
+    window.location.reload()
 }
