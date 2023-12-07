@@ -6,7 +6,7 @@ playBoard = document.querySelector('.play-board'),
 allBox = document.querySelectorAll('section span'),
 players = document.querySelector('.players'),
 resultBox = document.querySelector('.result-box'),
-wonText = document.querySelector('.won-text'),
+wonText = document.querySelector('.won-text p'),
 replayBtn = document.querySelector('.result-box button')
 
 let runBot = true;
@@ -22,7 +22,7 @@ window.onload = () => {
     selectOBtn.onclick = () => {
         selectBox.classList.add('hide') // hide the select box on playerO button clicked
         playBoard.classList.add('show') // show the playboard section on playerO button clicked
-        players.setAttribute('class', 'players active player') // adding three class names in player element
+        players.setAttribute('class', 'players active Oselected') // adding three class names in player element
     }
 }
 
@@ -30,7 +30,7 @@ let playerSign;
 
 const clickedBox = element => {
     playerSign = 'X'
-    if(players.classList.contains('player')) { // if players element contains (.player)
+    if(players.classList.contains('Oselected')) { // if players element contains (.player)
         element.innerHTML = '<div>O</div>' // adding circle icon inside user clicked element
         players.classList.add('active') // setting class attribute to remove .active and .player to swicth to X player
         playerSign = 'O'
@@ -63,7 +63,7 @@ const bot = runBot => {
         const randomNum = Math.floor(Math.random() * array.length) // generating a random number in the length of empty elements
         const randomBoxNum = array[randomNum]; // getting a random element using random number
         if(array.length > 0) { // checking if the box of play-area empty
-            if(players.classList.contains('player')) { // if players element contains (.player)
+            if(players.classList.contains('Oselected')) { // if players element contains (.player)
                 allBox[randomBoxNum].innerHTML = '<div>X</div>' // adding circle icon inside user clicked element
                 players.classList.remove('active') // setting class attribute to remove .active and .player to swicth to X player
                 playerSign = 'X'
@@ -100,7 +100,7 @@ const generateWinner = () => {
             playBoard.classList.remove('show')
             resultBox.classList.add('show')
         }, 800)
-        wonText.innerHTML = `Player <p>${playerSign}</p> has own the game`
+        wonText.innerText = playerSign
     } else {
         if(getId(1) !== '' && getId(2) !== '' && getId(3) !== '' && getId(4) !== '' && getId(5) !== '' && getId(6) !== '' && getId(7) !== '' && getId(8) !== '' && getId(9) !== '') {
             runBot = false

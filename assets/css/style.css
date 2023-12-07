@@ -30,7 +30,7 @@ body {
 .select-box.hide {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -80%) scale(0.9);
 }
 
 .select-box header {
@@ -86,7 +86,7 @@ body {
 .play-board {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, 0%) scale(0.9);
 }
 
 .play-board.show {
@@ -181,7 +181,7 @@ body {
     width: 100%;
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -90%) scale(0.9);
 }
 
 .result-box.show {
@@ -196,6 +196,7 @@ body {
     font-weight: 500;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .result-box .won-text p {
